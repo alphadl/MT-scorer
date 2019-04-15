@@ -21,7 +21,7 @@ if __name__ == "__main__":
     ofes = []
     for sfe in files:
         #print "compiling %s ..." %(sfe)
-        print(("%s %s %s" %("-" * 20, sfe, "-" * 20)))
+        print("%s %s %s" %("-" * 20, sfe, "-" * 20))
         ofe = "." + sfe.replace(".cpp", ".o").replace(".cc", ".o")
         time1 = path.getmtime(src_path + "/" + sfe)
         if path.isfile(ofe):
@@ -35,10 +35,10 @@ if __name__ == "__main__":
             if system(cmd) != 0:
                 exit(1)
         else:
-            print(("%s is the newest" %(ofe)))
+            print("%s is the newest" %(ofe))
         ofes.append(ofe)    
     if files != []:
-        print(("-" * 40))
+        print("-" * 40)
         cmd = "g++ %s -o %s %s %s -L%s" %(" ".join(ofes), program, link_flag, lib_flag, lib_path)
         print(cmd)
         system(cmd)
